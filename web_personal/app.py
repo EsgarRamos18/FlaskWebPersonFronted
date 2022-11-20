@@ -16,9 +16,23 @@ def contact():
     return render_template('public/contact.html')
 
 @app.route('/portal')
-
 def portalfolio():
-    return render_template('public/portfolio.html')
+    projects = [ 
+        {
+        'name': 'First Project',
+        'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit solutaodio, adipisci quas excepturi maxime quae totam ducimus consectetur?',
+        'image': 'img/home-bg.jpg',
+        'url': 'https://www.youtube.com'
+        },
+        {
+        'name': 'Second Project',
+        'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit solutaodio, adipisci quas excepturi maxime quae totam ducimus consectetur?',
+        'image': 'img/about-bg.jpg',
+        'url': 'https://www.github.com'
+        },
+        
+    ]
+    return render_template('public/portfolio.html', projects=projects)
 
 ################################
 #           Routes
@@ -30,6 +44,6 @@ def login():
 @app.route('/auth/register')
 def register():
     return render_template('auth/register.html')
-    
+
 if __name__ == '__main__':
     app.run(debug=True)
