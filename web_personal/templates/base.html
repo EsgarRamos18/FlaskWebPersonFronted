@@ -7,10 +7,13 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Wuaker Inc. | {%block title%}{% endblock%} </title>
+    <title>Wuaker Inc. | {%block title%}{% endblock%}</title>
 
     <!-- Estilos y fuentes del template  -->
-    <link href="{{url_for ('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link
+      href="{{url_for ('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}"
+      rel="stylesheet"
+    />
     <link
       href="{{url_for ('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}"
       rel="stylesheet"
@@ -26,13 +29,16 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="{{url_for ('static', filename='css/clean-blog.min.css') }}" rel="stylesheet" />
+    <link
+      href="{{url_for ('static', filename='css/clean-blog.min.css') }}"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="{{url_for ('index') }}">Juan Pérez</a>
+        <a class="navbar-brand" href="{{url_for ('index') }}">Wuaker Inc</a>
         <button
           class="navbar-toggler navbar-toggler-right"
           type="button"
@@ -54,7 +60,9 @@
               <a class="nav-link" href="{{url_for ('about') }}">Acerca de</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for ('portalfolio') }}">Portafolio</a>
+              <a class="nav-link" href="{{url_for ('portalfolio') }}"
+                >Portafolio</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url_for ('contact') }}">Contacto</a>
@@ -64,8 +72,26 @@
       </div>
     </nav>
 
-    {%block content %}
-    {% endblock %}
+    <!-- Cabecera -->
+    <header
+      class="masthead"
+      style="background-image: url('{% block header_img %} {% endblock %}')"
+    >
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>{% block header_title %}{% endblock %}</h1>
+              <span class="subheading">{%block header_sub %}{% endblock%}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    {%block content %} {% endblock %}
+    <hr>
     <!-- Pié de página -->
     <footer>
       <div class="container">
@@ -98,7 +124,7 @@
               </li>
             </ul>
             <p class="copyright text-muted">
-              Copyright &copy; 2018 · Juan Pérez (Ingeniero Industrial)
+              Copyright &copy; 2022 · Wuaker Inc (Full Stack)
             </p>
           </div>
         </div>
