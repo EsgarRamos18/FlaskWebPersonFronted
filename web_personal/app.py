@@ -45,7 +45,7 @@ def portalfolio():
 class LoginFrom(FlaskForm):
     username = StringField('Username')
     password = PasswordField('Password')
-    submit = SubmitField('Login')
+    submit = SubmitField('Ingresar')
 
 ################################
 #           Routes Login
@@ -53,7 +53,8 @@ class LoginFrom(FlaskForm):
 
 @app.route('/auth/login')
 def login():
-    return render_template('auth/login.html')
+    form = LoginFrom()
+    return render_template('auth/login.html', form=form)
 @app.route('/auth/register')
 def register():
     return render_template('auth/register.html')
