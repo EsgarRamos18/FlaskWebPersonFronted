@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request
-
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField
 app = Flask(__name__)
+
+app.config['SECRET_KEY'] ='secret'
 #################################
 #     Ruotes Public Interface
 #################################
@@ -34,8 +37,18 @@ def portalfolio():
     ]
     return render_template('public/portfolio.html', projects=projects)
 
+
 ################################
-#           Routes
+#           Form WTFroms
+################################
+
+class LoginFrom(FlaskForm):
+    username = StringField('Username')
+    password = PasswordField('Password')
+    submit = SubmitField('Login')
+
+################################
+#           Routes Login
 ################################
 
 @app.route('/auth/login')
