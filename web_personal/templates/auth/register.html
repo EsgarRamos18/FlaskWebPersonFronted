@@ -37,7 +37,7 @@ endblock%} {% block content %}
       {{form.gender(class="custom-select")}}
     </div>
     {{form.submit(class="btn btn-primary")}}
-    <a href="{{ url_for('login')}}" class="btn btn-warning">Login</a>
+    <a href="{{ url_for('auth.login')}}" class="btn btn-warning">Login</a>
   </form>
 </div>
 {%endblock%}
